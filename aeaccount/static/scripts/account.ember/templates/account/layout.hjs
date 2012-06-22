@@ -1,0 +1,42 @@
+
+<section>
+  <header>
+    <h1 id="section-header">
+      Account
+    </h1>
+  </header>
+  <div class="row">
+    <div class="span2">
+      <ul class="nav nav-list" id="account-nav">
+        <li class="overview active">
+          <a href="#/">
+            <i class="icon-th-list"></i>
+            Overview
+          </a>
+        </li>
+        <li class="connected">
+          <a href="#/connected">
+            <i class="icon-retweet"></i>
+            Connected Accounts
+          </a>
+        </li>
+        <li class="password">
+          <a href="#/password">
+            <i class="icon-key"></i>
+            Password
+          </a>
+        </li>
+        <li class="profile">
+          <a href="#/profile">
+            <i class="icon-user"></i>
+            Profile
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <section id="section-content">
+      {{dynamicView}}
+    </section>
+  </div>
+</section>

@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block title %}
+  Account Overview
+{% endblock %}
+
+{% block content %}
+  <section>
+    <header>
+      <h1>Account</h1>
+    </header>
+  </section>
+
+  <noscript>
+    <div class="alert alert-error">
+      Your browser does not support Javascript or Javascript has been disabled.
+    </div>
+    <p>As your browser does not support Javascript or has Javascript disabled, we are not able to display the requested page.</p>
+  </noscript>
+
+  <div id="content">
+    <div class="init-loading"></div>
+  </div>
+
+  <div class="row">
+    <div class="span2">
+      <ul class="nav nav-list">
+        <li class="active"><a href="/account/">Overview</a></li>
+        <li><a href="/account/connected">Connected Accounts</a></li>
+        <li><a href="/account/password">Password</a></li>
+        <li><a href="/account/profile">Profile</a></li>
+      </ul>
+    </div>
+
+
+    <div class="span7">
+      {% include "partials/messages.html" %}
+      <section>
+        <h3>Profile</h3>
+        <h4>{{ user.displayName }}</h4>
+        <p><a href="/account/profile">Edit Profile</a></p>
+      </section>
+
+      <section>
+        <h3>Email address</h3>
+        {% if user.email != None %}
+          <p>
+            {{ user.email }}
+            <span><a href="/account/profile">Edit</a></span>
+          </p>
+        {% else %}
+          <div class="alert alert-error">
+            You do <strong>not</strong> have an email address on file.
+            Without a verified email address you may lose access to your account.
+            Please add your email address now.
+          </div>
+          <h4><a href="/account/profile" class="btn btn-success">Add Email</a></h4>
+        {% endif %}
+      </section>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}
+  Forgot your password
+{% endblock %}
+
+{% block content %}
+  <section>
+    <header>
+      <h2>Forgot your password?</h2>
+
+      <p>To reset your password, enter the email address you used when creating your {{ application_title }} account.</p>
+
+      {% include "partials/messages.html" %}
+      <form method="POST" action="/account/recovery">
+        <fieldset class="control-group">
+          <label for="email" class="control-label">Email Address</label>
+          <div class="controls"><input type="text" name="email" class="input-large" /></div>
+        </fieldset>
+        <fieldset class="control-group">
+          <button type="submit" value="Submit" class="btn primary">Submit</button>
+        </fieldset>
+      </form>
+    </header>
+
+    <p><small>If you don't have a {{ application_title }} Account you can <a href="/auth/login"> create one now</a></small></p>
+  </section>
+{% endblock %}

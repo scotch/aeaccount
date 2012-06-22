@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block title %}
+  Connected Accounts
+{% endblock %}
+
+{% block content %}
+  <section>
+    <header>
+      <h1>Connected Accounts</h1>
+    </header>
+  </section>
+  <div class="row">
+    <div class="span2">
+      <ul class="nav nav-list">
+        <li><a href="/account/">Overview</a></li>
+        <li class="active"><a href="/account/connected">Connected Accounts</a></li>
+        <li><a href="/account/password">Password</a></li>
+        <li><a href="/account/profile">Profile</a></li>
+      </ul>
+    </div>
+
+    <section>
+      <div class="span7">
+        {% include "partials/messages.html" %}
+        <div class="accordion" id="providers-accordion">
+          {% for p in profiles %}
+            <div class="accordion-group">
+              <div class="accordion-heading">
+                <h3>
+                  <a data-toggle="collapse" data-parent="#providers-accordion" data-target="#{{ p.get_provider() }}" href="#{{ p.get_provider() }}"| class="accordion-toggle">
+                    <img width="16" height="16" src="https://s2.googleusercontent.com/s2/favicons?domain={{ p.get_provider() }}.com"></img>
+                    <span>
+                      {{ p.get_provider().capitalize() }}
+                    </span>
+                  </a>
+                </h3>
+              </div>
+              <div id="{{ p.get_provider() }}" class="collapse">
+                <div class="accordion-inner">
+                  {{ p.updated }}
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="well span2">
+        <h4>Connected Accounts</h4>
+        <ul>
+          <li>Provides you with alternative login paths.</li>
+          <li>Allows you to pre-populate forms.</li>
+          <li>Allows us to provide a tailored experience based on your interests and connections.</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+{% endblock %}

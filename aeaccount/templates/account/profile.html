@@ -1,0 +1,47 @@
+{% extends "account/account_base.html" %}
+
+{% block title %}
+  Profile
+{% endblock %}
+
+{% block account_header %}
+  Profile
+{% endblock %}
+
+{% block account_content %}
+  {% include "partials/messages.html" %}
+  <form method="POST" action="" class="form-horizontal">
+    <fieldset>
+      <div class="control-group">
+        <label class="control-label">
+          Current password
+        </label>
+        <div class="controls">
+          {{ form.current }}
+          <br />
+          <br />
+          <a href="/account/recovery"><small>Forgot your password?</small></a>
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label">
+          New password
+        </label>
+        <div class="controls">
+          {{ form.current }}
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label">
+          Verify password
+        </label>
+        <div class="controls">
+          {{ form.verify }}
+        </div>
+      </div>
+      <div class="form-actions">
+        <button type="submit" value="Submit" class="btn primary">Save Changes</button>
+      </div>
+    </fieldset>
+  </form>
+{% endblock %}

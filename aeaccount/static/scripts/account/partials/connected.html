@@ -1,0 +1,35 @@
+
+<div class="span7">
+  <div class="accordion" id="providers-accordion">
+    <div ng-repeat="profile in userProfiles" class="accordion-group">
+      <div class="accordion-heading">
+        <h3>
+          <a data-toggle="collapse" data-parent="#providers-accordion" data-target="#{{profiles.provider}}" href="#/connected/{{profile.provider}}"| class="accordion-toggle">
+            {{profile.url}}
+            <span>
+              {{profile.provider}}
+            </span>
+          </a>
+        </h3>
+      </div>
+
+      <div id="{{profile.provider}}">
+        <div class="accordion-inner">
+          <h3>
+            <img width="24" height="24" ng-src="{{profile.image}}" />
+            {{profile.name}}
+          </h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="well span2">
+  <h4>Why Connect Accounts?</h4>
+  <ul>
+    <li>Provides you with alternative login paths.</li>
+    <li>Allows you to pre-populate forms.</li>
+    <li>Allows us to provide a tailored experience based on your interests and connections.</li>
+  </ul>
+</div>

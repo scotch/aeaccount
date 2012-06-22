@@ -1,0 +1,37 @@
+<div class="span7">
+  <section>
+    <h3>Profile</h3>
+    <h4>"{{ App.userProfile }}"</h4>
+    <p><a href="/profile">Edit Profile</a></p>
+  </section>
+
+  <section>
+    <h3>Email address</h3>
+    <input type="checkbox" ng-model="checked" />
+    <div ng-show="checked">
+      <p>
+        {{partialTitle}}
+        {{App.user.email}}
+        <span><a href="/account/profile">Edit</a></span>
+      </p>
+    </div>
+    <div ng-hide="checked">
+      <div class="alert alert-error">
+        <i class="icon-exclamation-sign icon-large"></i>
+        You do <strong>not</strong> have an email address on file.
+        Without a verified email address you may lose access to your account.
+        Please add your email address now.
+      </div>
+      <h4><a href="#/profile" class="btn btn-success">Add Email</a></h4>
+    </div>
+  </section>
+</div>
+
+<div class="well span2">
+  <h4>Connected Accounts</h4>
+  <ul>
+    <li class="icon-ok">Provides you with alternative login paths.</li>
+    <li class="icon-ok">Allows you to pre-populate forms.</li>
+    <li class="icon-ok">Allows us to provide a tailored experience based on your interests and connections.</li>
+  </ul>
+</div>

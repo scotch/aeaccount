@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block title %}
+  Account
+{% endblock %}
+
+{% block head %}
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/require.js/1.0.5/require.min.js"></script>
+  <script>
+    require.config({
+      baseUrl: "/account/static/scripts/",
+      paths: {
+       // uncomment this line to serve the optimized
+       // main-build.js source file.
+       //"main": "/account/static/scripts/main-built"
+       "main": "/account/static/scripts/main"
+     }
+     });
+     require(["plugins/order!https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js", "plugins/order!lib/angular/angular-loader", "plugins/order!main"]);
+  </script>
+{% endblock %}
+
+{% block content %}
+  <section ng-controller="AccountCtrl" id="content">
+    <header>
+      <h1 ng-bind="partialTitle" id="section-header">Account Overview</h1>
+    </header>
+
+    <div class="row">
+      <div class="span2">
+        <ul class="nav nav-list" id="account-nav">
+          <li ng-class="getClass('overview')">
+            <a href="#/">
+              <i class="icon-th-list"></i>
+              Overview
+            </a>
+          </li>
+          <li ng-class="getClass('connected')">
+            <a href="#/connected">
+              <i class="icon-retweet"></i>
+              Connected Accounts
+            </a>
+          </li>
+          <li ng-class="getClass('password')">
+            <a href="#/password">
+              <i class="icon-key"></i>
+              Password
+            </a>
+          </li>
+          <li ng-class="getClass('profile')">
+            <a href="#/profile">
+              <i class="icon-user"></i>
+              Profile
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <section id="section-content">
+        <div ng-view></div>
+      </section>
+    </div>
+  </section>
+{% endblock %}

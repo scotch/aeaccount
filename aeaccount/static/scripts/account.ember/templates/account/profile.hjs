@@ -1,0 +1,51 @@
+<div class="span7">
+  <form class="form-horizontal">
+    <fieldset>
+      <legend>{{content.id}}</legend>
+      <img width="24" height="24" src="{{unbound image}}" />
+      <div class="control-group">
+        <label for="name" class="control-label">Name</label>
+        <div class="controls">
+          {{view Em.TextField valueBinding="profile.familyName"}}
+        </div>
+      </div>
+      <div class="control-group">
+        <label for="name" class="control-label">Gender</label>
+        <div class="controls">
+          {{view Em.Select
+            contentBinding="App.genderChoices"
+            selectionBinding="profile.gender"
+            optionLabelPath="content"
+            optionValuePath="content"
+            prompt="Pick a person:"}}
+        </div>
+      </div>
+      <div class="form-actions">
+        <button {{action "save"}} class="btn btn-primary">Save</button>
+        <button {{action "cancel"}} class="btn">Cancel</button>
+      </div>
+      {{#each profile.accounts}}
+        <div class="control-group">
+          <label for="name" class="control-label">Name</label>
+          <div class="controls">
+            {{view Em.TextField valueBinding="name"}}
+          </div>
+        </div>
+        <div class="control-group">
+          <label for="name" class="control-label">URL</label>
+          <div class="controls">
+            {{view Em.TextField valueBinding="url"}}
+          </div>
+        </div>
+      {{/each}}
+    </fieldset>
+  </form>
+</div>
+<div class="well span2">
+  <h4>Connected Accounts</h4>
+  <ul>
+    <li>Provides you with alternative login paths.</li>
+    <li>Allows you to pre-populate forms.</li>
+    <li>Allows us to provide a tailored experience based on your interests and connections.</li>
+  </ul>
+</div>
